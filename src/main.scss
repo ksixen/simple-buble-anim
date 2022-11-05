@@ -1,0 +1,107 @@
+
+.App {
+  display: grid;
+  gap: 10px;
+}
+
+
+.typing-anim {
+  width: fit-content;
+  padding: 0 5px;
+  background-color: rgb(194, 194, 194);
+  height: 24px;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  gap: 3px;
+
+    & > * {
+      height: 6px;
+      width: 6px;
+      border-radius: 4px;
+      position: relative;
+      background-color: rgba(32, 32, 32, 0.671);
+      opacity: 0.5;
+
+      @for $item from 1 through 3 {
+        &:nth-child(#{$item}) {
+          animation: .7s bubleTypingAnimation infinite ($item * .5s);
+        }
+      }
+ }
+
+  @keyframes bubleTypingAnimation {
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+.jumping-anim {
+  width: fit-content;
+  padding: 0 5px;
+  background-color: rgb(194, 194, 194);
+  height: 24px;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  gap: 3px;
+
+    & > * {
+      height: 6px;
+      width: 6px;
+      border-radius: 10px;
+      position: relative;
+      background-color:  rgba(32, 32, 32, 0.671);
+      transform: translateY(2px);
+      
+      @for $item from 1 through 3 {
+        &:nth-child(#{$item}) {
+          animation: .7s bubleJumpingAnimation infinite ($item * .5s);
+        }
+      }
+ }
+
+  @keyframes bubleJumpingAnimation {
+    50% {
+      // height: 10px;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.resizing-anim {
+  width: fit-content;
+  padding: 0 5px;
+  background-color: rgb(194, 194, 194);
+  height: 24px;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  gap: 3px;
+
+    & > * {
+      height: 6px;
+      width: 6px;
+      border-radius: 4px;
+      position: relative;
+      background-color:  rgba(32, 32, 32, 0.671);
+      transform: translateY(2px);
+      
+      @for $item from 1 through 3 {
+        &:nth-child(#{$item}) {
+          animation: .7s bubleSizingJumpingAnimation infinite ($item * .5s);
+        }
+    }
+ }
+
+  @keyframes bubleSizingJumpingAnimation {
+    50% {
+      height: 10px;
+      transform: translateY(0px);
+    }
+  }
+}
